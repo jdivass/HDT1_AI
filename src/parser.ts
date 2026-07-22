@@ -1,4 +1,4 @@
-import { Command } from "./types";
+import type { Command } from "./types.js";
 
 /**
  * parseCommand interpreta una línea cruda ingresada por el usuario en la TUI.

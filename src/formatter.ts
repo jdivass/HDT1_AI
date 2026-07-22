@@ -1,4 +1,4 @@
-import { CartItem } from "./types";
+import type { CartItem } from "./types.js";
 
 /**
  * formatCartLines produce las líneas de texto que la TUI imprime para

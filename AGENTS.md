@@ -11,7 +11,7 @@ Estructura:
 - `src/cart.ts` — lógica de altas/bajas/cambios del carrito
 - `src/parser.ts` — parseo de la entrada del usuario
 - `src/formatter.ts` — formato de salida del carrito
-- `src/index.ts` — loop de la TUI (pendiente)
+- `src/index.ts` — loop de la TUI y adaptador de stdin/stdout
 - `tests/` — suite Vitest (unit + integración)
 
 ## Comandos para testear y buildear

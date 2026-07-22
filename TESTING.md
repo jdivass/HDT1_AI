@@ -1,9 +1,8 @@
 # Testing (TDD) — Shop 502 TUI
 
 Este proyecto sigue TDD (Red → Green → Refactor) para la lógica de negocio
-del carrito. Los tests ya están escritos y describen el comportamiento
-esperado; los archivos en `src/` son stubs que lanzan `Error("not
-implemented")` a propósito.
+del carrito. Los tests se escribieron primero para describir el comportamiento
+esperado y las implementaciones actuales completan la fase Green/Refactor.
 
 ## Nota sobre cómo adaptamos TDD
 
@@ -32,7 +31,8 @@ división de roles del equipo, no un malentendido del concepto.
 
 ## Flujo de trabajo
 
-1. **Red**: corre `npm test`. Todo debe fallar (ya está así).
+1. **Red**: escribe un test que describa el nuevo comportamiento y confirma
+   que falla por la razón esperada.
 2. **Green**: implementa el método/función mínimo necesario en `src/` para
    que el siguiente test (o grupo de tests) pase. No implementes de más.
 3. **Refactor**: con los tests en verde, limpia el código sin cambiar
@@ -59,6 +59,8 @@ npm run test:coverage # corre tests + reporte de cobertura (umbral 80%)
   salida del carrito.
 - `tests/integration.test.ts` — reproduce paso a paso la transcripción del
   mock de UX/PO, incluyendo la secuencia completa de principio a fin.
+- `tests/index.test.ts` — valida el loop de la TUI, entradas inválidas y la
+  conexión con streams reales de Node.
 
 ## Nota sobre el mock
 

@@ -12,9 +12,12 @@ npm ci
 npm run typecheck
 npm run test:coverage
 npm run build
+npm start
 ```
 
-El build compilado se genera en `dist/`.
+El build compilado se genera en `dist/`. Después de ejecutar `npm run build`,
+`npm start` inicia la TUI. Las operaciones usan el formato
+`<id_producto> <cantidad>` y `bye` termina la sesión.
 
 ## Pipeline CI/CD
 
