@@ -10,15 +10,39 @@ import { CartItem, OperationResult } from "./types";
  * y luego refactoricen si hace falta (fase REFACTOR).
  */
 export class Cart {
-  applyOperation(_productId: string, _quantity: number): OperationResult {
-    throw new Error("not implemented");
+  private items: CartItem[] = [];
+
+  applyOperation(productId: string, quantity: number): OperationResult {
+    const itemIndex = this.items.findIndex((item) => item.productId === productId);
+
+    if (itemIndex === -1) {
+      if (quantity < 0) {
+        return this.result("not_found");
+      }
+
+      this.items.push({ productId, quantity });
+      return this.result("added");
+    }
+
+    const newQuantity = this.items[itemIndex].quantity + quantity;
+    if (newQuantity <= 0) {
+      this.items.splice(itemIndex, 1);
+      return this.result("removed");
+    }
+
+    this.items[itemIndex] = { productId, quantity: newQuantity };
+    return this.result("updated");
   }
 
   getItems(): CartItem[] {
-    throw new Error("not implemented");
+    return this.items.map((item) => ({ ...item }));
   }
 
   isEmpty(): boolean {
-    throw new Error("not implemented");
+    return this.items.length === 0;
+  }
+
+  private result(status: OperationResult["status"]): OperationResult {
+    return { status, cart: this.getItems() };
   }
 }
