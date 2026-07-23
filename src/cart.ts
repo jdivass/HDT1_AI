@@ -1,4 +1,4 @@
-import { CartItem, OperationResult } from "./types";
+import type { CartItem, OperationResult } from "./types.js";
 
 /**
  * Cart maneja el estado del carrito de un usuario anónimo dentro de una
